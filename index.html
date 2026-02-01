@@ -2,165 +2,108 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Rivo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <title>Rivo</title>
+  <meta name="description" content="Rivo – build, launch, and grow your ideas." />
+  <link rel="icon" href="favicon.ico" />
   <style>
+    :root {
+      --bg: #0f1220;
+      --card: #171a2e;
+      --accent: #6cf2c2;
+      --text: #e8eaf6;
+      --muted: #a6abff;
+    }
+    * { box-sizing: border-box; }
     body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #fff;
-      color: #202124;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
+      margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background: radial-gradient(1200px 600px at 10% -10%, #1b1f44, transparent), var(--bg);
+      color: var(--text);
     }
-
-    /* Top right buttons */
-    .top-bar {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      padding: 12px 16px;
-      gap: 10px;
-    }
-
-    .top-bar button {
-      border: none;
-      border-radius: 20px;
-      padding: 6px 14px;
-      font-size: 14px;
-      cursor: pointer;
-    }
-
-    .btn-rivo {
-      background: #ff9900;
-      color: #fff;
-    }
-
-    .btn-signin {
-      background: #1a73e8;
-      color: #fff;
-    }
-
-    /* Center content */
-    .center {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin-top: -60px;
-    }
-
-    .logo {
-      font-size: 80px;
-      font-weight: bold;
-      letter-spacing: -2px;
-      margin-bottom: 25px;
-    }
-
-    .r { color: #4285f4; }
-    .i { color: #ea4335; }
-    .v { color: #fbbc05; }
-    .o { color: #34a853; }
-
-    /* Search box */
-    .search-box {
-      width: 560px;
-      max-width: 90%;
-      height: 44px;
-      border-radius: 24px;
-      border: 1px solid #dfe1e5;
-      display: flex;
-      align-items: center;
-      padding: 0 15px;
-      box-shadow: 0 1px 6px rgba(32,33,36,.28);
-    }
-
-    .search-box input {
-      border: none;
-      outline: none;
-      width: 100%;
-      font-size: 16px;
-    }
-
-    /* Buttons under search */
-    .buttons {
-      margin-top: 25px;
-      display: flex;
-      gap: 12px;
-    }
-
-    .buttons button {
-      background: #f8f9fa;
-      border: 1px solid #f8f9fa;
-      border-radius: 4px;
-      padding: 10px 16px;
-      font-size: 14px;
-      cursor: pointer;
-    }
-
-    .buttons button:hover {
-      border: 1px solid #dadce0;
-    }
-
-    /* Footer */
-    footer {
-      font-size: 13px;
-      color: #70757a;
-      padding: 12px 20px;
-      display: flex;
-      justify-content: space-between;
-      border-top: 1px solid #dadce0;
-    }
-
-    footer div {
-      display: flex;
-      gap: 15px;
-    }
+    header { padding: 24px 32px; display:flex; align-items:center; justify-content:space-between; }
+    header h1 { margin:0; letter-spacing:0.5px; }
+    nav a { color: var(--text); text-decoration:none; margin-left:18px; opacity:.9 }
+    nav a:hover { color: var(--accent); }
+    .hero { padding: 72px 32px; max-width: 1100px; margin: auto; }
+    .hero h2 { font-size: 44px; margin: 0 0 12px; }
+    .hero p { font-size: 18px; color: #cfd3ff; max-width: 640px; }
+    .cta { margin-top: 28px; display:flex; gap:14px }
+    .btn { padding: 14px 18px; border-radius: 14px; border: 1px solid #2b2f5c; background: #1a1e3f; color: var(--text); cursor:pointer }
+    .btn.primary { background: linear-gradient(135deg, #6cf2c2, #6aa9ff); color:#0b0f1a; border:none }
+    section { max-width: 1100px; margin: auto; padding: 40px 32px }
+    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px }
+    .card { background: var(--card); border-radius: 20px; padding: 22px; border:1px solid #232760 }
+    .card h3 { margin-top:0 }
+    .pricing .price { font-size: 36px; color: var(--accent) }
+    footer { padding: 32px; text-align:center; color:#9aa0ff }
+    .badge { display:inline-block; padding:6px 10px; border-radius:999px; background:#22266b; color:#cfd3ff; font-size:12px }
+    form { display:grid; gap:12px }
+    input, textarea { padding:12px 14px; border-radius:12px; border:1px solid #2b2f5c; background:#12153a; color:var(--text) }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Rivo</h1>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-  <!-- Top bar -->
-  <div class="top-bar">
-    <button class="btn-rivo">Rivo</button>
-    <button class="btn-signin">Sign in</button>
-  </div>
-
-  <!-- Center -->
-  <div class="center">
-    <div class="logo">
-      <span class="r">R</span><span class="i">i</span><span class="v">v</span><span class="o">o</span>
+  <main>
+    <div class="hero">
+      <span class="badge">New</span>
+      <h2>Build fast. Launch smart. Grow with Rivo.</h2>
+      <p>Rivo is a modern platform designed to help creators and small teams build websites, manage projects, and scale ideas — all in one clean experience.</p>
+      <div class="cta">
+        <button class="btn primary">Get Started</button>
+        <button class="btn">View Demo</button>
+      </div>
     </div>
 
-    <div class="search-box">
-      <input type="text" placeholder="Search Rivo or type a URL">
-    </div>
+    <section id="features">
+      <h2>Features</h2>
+      <div class="grid">
+        <div class="card"><h3>Fast Setup</h3><p>Launch a clean, modern site in minutes with simple tools.</p></div>
+        <div class="card"><h3>Custom Branding</h3><p>Your colors, logo, and style — no limits.</p></div>
+        <div class="card"><h3>Hosting Ready</h3><p>Deploy easily using GitHub Pages or Netlify.</p></div>
+        <div class="card"><h3>Secure</h3><p>Built with best practices for performance and safety.</p></div>
+      </div>
+    </section>
 
-    <div class="buttons">
-      <button>Rivo Search</button>
-      <button>I'm Feeling Lucky</button>
-    </div>
-  </div>
+    <section id="pricing" class="pricing">
+      <h2>Pricing</h2>
+      <div class="grid">
+        <div class="card"><h3>Starter</h3><div class="price">$0</div><p>Perfect for beginners.</p><ul><li>1 site</li><li>Basic support</li></ul></div>
+        <div class="card"><h3>Pro</h3><div class="price">$9/mo</div><p>For growing projects.</p><ul><li>Unlimited pages</li><li>Custom domain</li><li>Email support</li></ul></div>
+        <div class="card"><h3>Business</h3><div class="price">$29/mo</div><p>For serious teams.</p><ul><li>Team access</li><li>Priority support</li><li>Advanced analytics</li></ul></div>
+      </div>
+    </section>
 
-  <!-- Footer -->
+    <section id="about">
+      <h2>About Rivo</h2>
+      <p>Rivo was created to make building on the web simple, fast, and fun. No clutter. No confusion. Just results.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <form onsubmit="event.preventDefault(); alert('Message sent!')">
+        <input placeholder="Your name" required />
+        <input type="email" placeholder="Email" required />
+        <textarea placeholder="Your message"></textarea>
+        <button class="btn primary" type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
   <footer>
-    <div>United States</div>
-    <div>
-      <span>About</span>
-      <span>Advertising</span>
-      <span>Business</span>
-      <span>How Search works</span>
-    </div>
-    <div>
-      <span>Privacy</span>
-      <span>Terms</span>
-      <span>Settings</span>
-    </div>
+    © <span id="year"></span> Rivo. All rights reserved.
   </footer>
 
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
